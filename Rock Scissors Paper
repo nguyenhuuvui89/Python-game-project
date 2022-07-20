@@ -1,0 +1,42 @@
+import sys
+print("Welcome to Rock Paper Scissors game")
+x=input("Would you like to play game? Y/N ")
+if x.upper()=="Y":
+    print("Let's play")
+else:
+    print("See you later")
+    sys.exit()
+while True:
+    player_1=input("Enter your think: ")
+    player_2=input("Your turn to enter your think: ")
+    player_10=player_1.lower()
+    player_20=player_2.lower()
+    def game(player_1,player_2):
+        if player_1==player_2:
+            print("You are tie")
+        elif player_1=="paper":
+            if player_2=="scissors":
+                print("Player_1 looses")
+            else:
+                print("Player_1 wins")
+        elif player_1=="rock":
+            if player_2=="paper":
+                print("Player_2 wins")
+            else:
+                print("Player_2 looses")
+        elif player_1=="scissor":
+            if player_2=="paper":
+                print("Player_1 wins")
+            else:
+                print("Player_1 looses")
+        else:
+            print("You input the invalid value.Please try again")
+    game(player_10,player_20)
+    a=input("Do you want to continue to play game Y/N? ")
+    if a.lower()=="y":
+        continue
+    else:
+        break
+if __name__=="__game__":
+        game()
+    

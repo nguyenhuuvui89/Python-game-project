@@ -1,0 +1,41 @@
+import sys
+from tkinter import Menu
+print("COMMAND MENU")
+Command_menu = ["list - List all movies", "add - Add a movie", "del - Delete a movie", "exit - Exit program"]
+for command in Command_menu:
+    print(command)
+movies = ["Monty Python and the Holy Grail", "On the Waterfront", "Cat on a Hot Tin Roof"]
+def list_movie():
+    for i in range(len(movies)):
+        print(f"{i+1}. {movies[i]}")
+
+def add_movie(menu,movie):
+    menu.append(movie)
+    return menu
+
+def delete_movie(menu):
+    index =input("Number: \n")
+    if index.isnumeric() and 1<int(index)-1<len(movies):
+        index=int(index)
+        x=menu.pop(index-1)
+        print(f"{x} was deleted")
+    else:
+        print(f"Your input is out of range.Pls enter between 1 and {len(movies)}")
+        return delete_movie(menu)       
+def main():
+    while True:
+        command_input=input("Please input command in COMMAND MENU: (list, add, del, exit) \n")
+        if command_input.lower() == "list":
+            list_movie()
+        elif command_input.lower() == "add":
+            movie_name = input("Name: \n")
+            add_movie(movies,movie_name) 
+            print(f"{movie_name} was added")   
+        elif command_input.lower() == "del":
+            delete_movie(movies)
+        else:
+            False
+
+if __name__ == "__main__":
+    main()
+
